@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
-
-gem 'rake'
-gem 'rspec'
+source 'https://rubygems.org' do
+    gem 'rake', '~> 12.0'
+    gem 'rspec'
+end
