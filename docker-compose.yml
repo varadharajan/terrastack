@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+
+  terraform:
+    image: hashicorp/terraform:0.13.4
+    entrypoint: tail -f /dev/null
+
+  localstack:
+    image: localstack/localstack-full:0.11.6
+    ports:
+      - "4566:4566"
+      - "4571:4571"
+      - "${PORT_WEB_UI-8080}:${PORT_WEB_UI-8080}"
+    environment:
+      - SERVICES=${SERVICES- }
+    volumes:
+      - "/tmp/localstack:/tmp/localstack"
+
+  dockerize:
+    image: jwilder/dockerize:0.6.1
+    entrypoint: tail -f /dev/null
+    depends_on:
+      - terraform
+      - localstack
