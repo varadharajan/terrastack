@@ -3,7 +3,9 @@ services:
 
   terraform:
     image: hashicorp/terraform:0.13.4
-    entrypoint: tail -f /dev/null
+    entrypoint: "tail -f /dev/null"
+    environment:
+      - PS1=shell->
 
   localstack:
     image: localstack/localstack-full:0.11.6
@@ -15,6 +17,13 @@ services:
       - SERVICES=${SERVICES- }
     volumes:
       - "/tmp/localstack:/tmp/localstack"
+
+  test:
+    image: ruby:2.7.2-buster
+    entrypoint: "gem install bundler; tail -f /dev/null"
+    working_dir: /data/codebase
+    volumes:
+      - .:/data/codebase
 
   dockerize:
     image: jwilder/dockerize:0.6.1
