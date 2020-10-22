@@ -13,7 +13,7 @@ services:
       - localstack
 
   localstack:
-    image: localstack/localstack-full:0.11.6
+    image: localstack/localstack-full:latest
     ports:
       - "4566:4566"
       - "4571:4571"

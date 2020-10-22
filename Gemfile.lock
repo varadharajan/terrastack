@@ -3,15 +3,15 @@ GEM
   specs:
     aws-eventstream (1.1.0)
     aws-partitions (1.384.0)
-    aws-sdk-apigateway (1.55.0)
-      aws-sdk-core (~> 3, >= 3.109.0)
-      aws-sigv4 (~> 1.1)
     aws-sdk-core (3.109.1)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
       aws-sigv4 (~> 1.1)
       jmespath (~> 1.0)
     aws-sdk-dynamodb (1.55.0)
+      aws-sdk-core (~> 3, >= 3.109.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-lambda (1.51.0)
       aws-sdk-core (~> 3, >= 3.109.0)
       aws-sigv4 (~> 1.1)
     aws-sigv4 (1.2.2)
@@ -38,8 +38,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk-apigateway (~> 1.55.0)!
   aws-sdk-dynamodb (~> 1.55.0)!
+  aws-sdk-lambda (~> 1.51.0)!
   json!
   rake (~> 12.0)!
   rspec!

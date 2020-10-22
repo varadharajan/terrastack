@@ -10,6 +10,8 @@ namespace :env do
     task :down do
         `docker-compose down`
         puts "Terminated local environment. Bye!"
+        ensure
+            teardown
     end
 
     desc "Restart local environment"
@@ -19,5 +21,13 @@ namespace :env do
     desc "Show logs from all containers"
     task :logs => ["env:up"] do
         sh "docker-compose logs -f"
+    end
+
+    def teardown()
+        sh 'find modules systems -type f -name output.json -delete'
+        sh 'find modules systems -type f -name provider.tf -delete'
+        sh 'find modules systems -type f -name terraform.tfstate -delete'
+        sh 'find modules systems -type f -name terraform.tfstate.backup -delete'
+        sh "find modules systems -name .terraform -exec rm -rf {} +"
     end
 end

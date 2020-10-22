@@ -6,6 +6,8 @@ terraform {
 
 locals {
   env = "local"
+  region = "us-east-1"
+  dynamodb_endpoint = "http://localstack:4566"
 }
 
 provider "aws" {
@@ -18,7 +20,9 @@ provider "aws" {
   skip_requesting_account_id  = true
 
   endpoints {
-    dynamodb = "http://localstack:4566"
+    dynamodb = local.dynamodb_endpoint
     apigateway = "http://localstack:4566"
+    lambda = "http://localstack:4566"
+    iam = "http://localstack:4566"
   }
 }
