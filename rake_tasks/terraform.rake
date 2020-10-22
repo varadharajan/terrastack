@@ -19,6 +19,8 @@ namespace :terraform do
             MODULES.each do |m|
                 run_terraform_cmd(m, "destroy -auto-approve")
             end
+            ensure
+                teardown
         end
 
         
@@ -26,8 +28,6 @@ namespace :terraform do
             setup_module(module_)
             sh "docker-compose exec terraform sh -c 'cd #{module_wd(module_)}; terraform init'"
             sh "docker-compose exec terraform sh -c 'cd #{module_wd(module_)}; terraform #{terraform_cmd}'"
-            ensure
-                teardown
         end
 
         def setup_module(module_)
