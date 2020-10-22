@@ -33,7 +33,7 @@ modules/*/spec/provider.tf
 modules/*/spec/output.json
 modules/*/spec/.terraform
 modules/*/spec/terraform.tfstate*
-systems/*/spec/provider.tf
-systems/*/spec/output.json
-systems/*/spec/.terraform
-systems/*/spec/terraform.tfstate*
+systems/*/provider.tf
+systems/*/output.json
+systems/*/.terraform
+systems/*/terraform.tfstate*
