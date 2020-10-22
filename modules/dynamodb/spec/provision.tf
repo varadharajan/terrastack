@@ -8,3 +8,11 @@ module "test_table" {
   ]
   env = local.env
 }
+
+output "arn" {
+  value = module.test_table.arn
+}
+
+output "id" {
+  value = module.test_table.id
+}

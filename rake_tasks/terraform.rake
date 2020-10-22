@@ -11,6 +11,7 @@ namespace :terraform do
         task :apply => ["env:up"] do
             MODULES.each do |m|
                 run_terraform_cmd(m, "apply -auto-approve")
+                run_terraform_cmd(m, "output -json > output.json")
             end
         end
 
@@ -37,7 +38,8 @@ namespace :terraform do
 
         def teardown()
             sh "docker-compose exec terraform find modules -type f -name provider.tf -delete"
-            sh "docker-compose exec terraform find modules -type f -name terraform.tfstate -delete"
+            sh "docker-compose exec terraform find modules -type f -name output.json -delete"
+            sh "docker-compose exec terraform find modules -type f -name terraform.tfstate* -delete"
             sh "docker-compose exec terraform find modules -type d -name .terraform -exec rm -rf {} +"
         end
 
