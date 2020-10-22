@@ -19,5 +19,6 @@ provider "aws" {
 
   endpoints {
     dynamodb = "http://localstack:4566"
+    apigateway = "http://localstack:4566"
   }
 }
