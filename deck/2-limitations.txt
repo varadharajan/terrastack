@@ -1,0 +1,8 @@
+Limitations:
+- Snowflake environments and time consuming devbox setup process.
+- Difficult to test changes without a shared environment
+    * A task that should take few minutes takes few hours at the end
+- Difficult to reproduce issues on local boxes for debugging purposes.
+- Major portions of IaC code have side-effects (example: Provisioning a S3 bucket) making it difficult to write tests.
+    * IaC frameworks are still in its early stages compared to traditional platforms like the JVM when it comes to developer support tools.
+- Expensive ($)

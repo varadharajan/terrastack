@@ -1,0 +1,7 @@
+Benefits
+- Automated
+- Reproducible
+- Isolated and self sufficient ${UND}without${RST} any dependency on shared resources
+- Promotes ${ITA}fail fast, learn fast ${RST} culture
+- Promotes ${ITA}Test Driven Development TDD ${RST}
+- Parity across all environments. Prod is nothing but dev environment with more resources at its disposal!

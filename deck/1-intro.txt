@@ -1,0 +1,3 @@
+Terrastack!
+
+An opinionated skeleton project for Terraform / AWS PaaS codebases with batteries included!

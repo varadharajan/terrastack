@@ -1,0 +1,4 @@
+Next Steps:
+- Step 1 : Figure out how to run Docker on local.
+
+Questions?
